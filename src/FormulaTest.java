@@ -1,4 +1,3 @@
-import static junit.framework.TestCase.fail;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -133,4 +132,5 @@ public class FormulaTest {
         String output2 = formula.asString();
         assertThat(output2, equalTo("max((x+y),(x+x+y),(x*y))"));
     }
+
 }
