@@ -1,29 +1,18 @@
-public class Product implements Formula{
+public class Product extends VariadicOperator{
 
-    private Formula[] formula;
     public Product(Formula... formula) {
-        this.formula = formula;
+        super(formula);
     }
 
-    @Override
-    public String asString() {
-        String result="(";
-        for(int i=0;i<formula.length;i++){
-            result += formula[i].asString();
-            if(i==formula.length-1)
-                result += ")";
-            else
-                result += "*";
-        }
-        return result;
+    public String symbol(){
+        return "*";
     }
 
-    @Override
-    public double asValue() {
-        double result=1;
-        for(int i=0;i<formula.length;i++){
-            result *= formula[i].asValue();
-        }
-        return result;
+    public double initialValue(){
+        return 1;
+    }
+
+    public double cumulativeValue(double accumulator,double value){
+        return accumulator*value;
     }
 }
